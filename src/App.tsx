@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react'
 import { alerts, severityMeta } from './features/alerts/alert-data'
 import type { FloodAlert, Severity } from './features/alerts/alert-data'
+import AccountPage from './features/account/AccountPage'
 import FloodMap from './features/map/FloodMap'
 
 function Icon({
@@ -160,19 +161,7 @@ export default function App() {
           </div> : <div className="route-empty"><span><Icon name="route" size={32} /></span><h2>Đi an toàn hơn khi trời mưa</h2><p>Nhập điểm đến, ứng dụng sẽ đối chiếu tất cả cảnh báo để đề xuất đường tránh.</p></div>}
         </section>}
 
-        {tab === 'profile' && <section className="app-page profile-page">
-          <PageHeader title="Cá nhân" subtitle="Hồ sơ & thiết lập" />
-          <div className="profile-card">
-            <div className="avatar">NA</div><div><h2>Nguyễn An</h2><p>Thành viên cộng đồng</p></div><button aria-label="Sửa hồ sơ"><Icon name="edit" size={18} /></button>
-          </div>
-          <div className="contribution"><div><strong>08</strong><span>Báo cáo đã gửi</span></div><div><strong>21</strong><span>Lượt xác nhận</span></div><div><strong>120</strong><span>Điểm cộng đồng</span></div></div>
-          <h3 className="settings-title">Thiết lập</h3>
-          <div className="settings-list">
-            <button><span><Icon name="bell" /></span><div><strong>Khu vực nhận cảnh báo</strong><small>Bình Thạnh, Quận 1</small></div><Icon name="chevron" size={18} /></button>
-            <button><span><Icon name="shield" /></span><div><strong>Quyền riêng tư</strong><small>Vị trí chỉ dùng khi cần</small></div><Icon name="chevron" size={18} /></button>
-            <button><span><Icon name="settings" /></span><div><strong>Cài đặt ứng dụng</strong><small>Thông báo, ngôn ngữ</small></div><Icon name="chevron" size={18} /></button>
-          </div>
-        </section>}
+        {tab === 'profile' && <AccountPage />}
 
         <nav className="bottom-nav">
           <button className={tab === 'map' ? 'active' : ''} onClick={() => setTab('map')}><Icon name="home" /><span>Bản đồ</span></button>
